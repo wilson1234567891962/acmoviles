@@ -1,22 +1,27 @@
 package com.co.retrofit.app.feature.view.fragments.album
+
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
+import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumBinding
-import com.co.retrofit.app.feature.model.dto.Album
-import com.co.retrofit.app.feature.view.adapter.AlbumAdapter
-import com.co.retrofit.app.feature.viewmodel.AlbumViewModel
+import com.co.retrofit.app.feature.view.activities.Maintenance
+import com.co.retrofit.data.model.dto.Album
+import com.co.retrofit.app.feature.view.adapter.album.AlbumAdapter
+import com.co.retrofit.app.feature.viewmodel.album.AlbumViewModel
 
 class AlbumFragment : Fragment() {
 
 
-    private val homeViewModel by viewModelProvider(AlbumViewModel::class)
+    private val albumViewModel by viewModelProvider(AlbumViewModel::class)
     private var mBinding: FragmentAlbumBinding? = null
-
+    private lateinit var adapter: AlbumAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,19 +40,23 @@ class AlbumFragment : Fragment() {
          * The onChanged() method fires when the observed data changes and the activity is in the foreground.
          */
 
-
         // Set the LayoutManager that this RecyclerView will use.
         mBinding!!.rvAlbumList.layoutManager =
             GridLayoutManager(requireActivity(), 2)
         // Adapter class is initialized and list is passed in the param.
-        val adapter = AlbumAdapter(this@AlbumFragment)
+        adapter = AlbumAdapter(this@AlbumFragment) { item ->
+            // this.processItemAdapter(item);
+        };
         // adapter instance is set to the recyclerview to inflate the items.
         mBinding!!.rvAlbumList.adapter = adapter
-        var albums = listOf<Album>(Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"))
+
+        albumViewModel.getAlbumCache()
+            .observeSingleData(this, ::processAlbum)
+            .observeErrorThrowable(this, ::observeErrorThrowable)
+         showFloating()
+    }
+
+    private fun processAlbum(albums: List<Album>) {
         if (albums.isNotEmpty()) {
             mBinding!!.rvAlbumList.visibility = View.VISIBLE
             mBinding!!.tvAlbumAvailable.visibility = View.GONE
@@ -57,11 +66,21 @@ class AlbumFragment : Fragment() {
             mBinding!!.rvAlbumList.visibility = View.GONE
             mBinding!!.tvAlbumAvailable.visibility = View.VISIBLE
         }
+    }
 
-        showFloating()
+
+    private fun processItemAdapter(album: Album){
+        albumViewModel.saveSelectionItem(album)
+        val navController = this.activity?.findNavController(R.id.nav_host_fragment)
+        navController?.navigate(R.id.navigation_detail_album)
+    }
+    @Suppress("UNUSED_PARAMETER")
+    private fun observeErrorThrowable(error: Throwable){
+        val intent = Intent(this.activity, Maintenance::class.java)
+        startActivity(intent)
     }
 
     private fun showFloating() {
-        homeViewModel.setStateFloating(true)
+        albumViewModel.setStateFloating(false)
     }
 }
