@@ -1,4 +1,4 @@
-package com.co.retrofit.app.feature.view.adapter
+package com.co.retrofit.app.feature.view.adapter.album
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.databinding.ItemAlbumLayoutBinding
-import com.co.retrofit.app.feature.model.dto.Album
+import com.co.retrofit.data.model.dto.Album
 
 
-class AlbumAdapter(private val fragment: Fragment) :
+class AlbumAdapter(private val fragment: Fragment,
+                   private val listener: (Album) -> Unit) :
     RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
 
     private var album: List<Album> = listOf()
@@ -43,12 +44,13 @@ class AlbumAdapter(private val fragment: Fragment) :
 
         // Load the dish image in the ImageView.
         Glide.with(fragment)
-            .load(dto.image)
+            .load(dto.cover)
             .apply(RequestOptions.circleCropTransform())
             .into(holder.ivDishImage)
 
-        holder.tvTitle.text ="Nombre: ${dto.title}"
-        holder.tvArtist.text ="Artista: ${dto.artist}"
+        holder.tvTitle.text ="Nombre: ${dto.name}"
+        holder.tvArtist.text ="Género: ${dto.genre}"
+        holder.itemView.setOnClickListener { listener(dto) }
     }
 
     /**
