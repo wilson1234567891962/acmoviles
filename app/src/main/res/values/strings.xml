@@ -14,7 +14,6 @@
 
     <string name="label_album_added_yet">No hay albumes</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="descripcion">Descripcion:</string>
     <string name="fecha_de_creacion">Fecha de creacion:</string>
     <string name="albumes">Albumes del Artista</string>
@@ -59,4 +58,6 @@
     <string name="usability_artist_album_list">Listado albumes de artista</string>
     <string name="usability_artist_album_title">Albumes de artista</string>
     <string name="imagen_de_album">Imagen de album</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
