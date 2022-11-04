@@ -36,7 +36,7 @@ class NetworkServiceAdapter constructor(context: Context) {
         Volley.newRequestQueue(context.applicationContext)
     }
     suspend fun getArtists() =  suspendCoroutine<List<Artist>>{ cont->
-        requestQueue.add(getRequest("bands",
+        requestQueue.add(getRequest("musicians",
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Artist>()
@@ -96,7 +96,7 @@ class NetworkServiceAdapter constructor(context: Context) {
 
     suspend fun getAlbumsOfArtist(artistId:Int) = suspendCoroutine<List<Album>> { cont ->
 
-        requestQueue.add(getRequest("bands/$artistId/albums",
+        requestQueue.add(getRequest("musicians/$artistId/albums",
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 var list = mutableListOf<Album>()

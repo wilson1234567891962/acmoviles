@@ -10,7 +10,7 @@ import com.co.retrofit.app.feature.model.dto.Collector
 
 
 
-@Database(entities = [Collector::class, Artist::class, Album::class], version = 2, exportSchema = false)
+@Database(entities = [Collector::class, Artist::class, Album::class], version = 3, exportSchema = false)
 abstract class VinylRoomDatabase : RoomDatabase() {
 
     abstract fun artistsDao(): ArtistsDao
