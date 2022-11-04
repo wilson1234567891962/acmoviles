@@ -10,8 +10,8 @@ import kotlinx.parcelize.Parcelize
 @Entity(tableName = "artists_table")
 data class Artist(
     @PrimaryKey val artistId:Int,
-    val name:String,
-    val image:String,
-    val creationDate:String,
-    val description:String
+    val name: String,
+    val image: String,
+    val birthDate: String,
+    val description : String
 ):Parcelable

@@ -47,7 +47,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                             artistId = item.getInt("id"),
                             name = item.getString("name"),
                             image = item.getString("image"),
-                            creationDate = item.getString("creationDate"),
+                            birthDate = item.getString("creationDate"),
                             description = item.getString("description")))
                 }
                 cont.resume(list)

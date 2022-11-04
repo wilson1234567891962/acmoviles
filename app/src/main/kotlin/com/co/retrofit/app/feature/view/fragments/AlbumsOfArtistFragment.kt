@@ -73,7 +73,7 @@ class AlbumsOfArtistFragment : Fragment() {
 
         activity.findViewById<TextView>(R.id.artist_name).apply{text=args.artist.name }
         activity.findViewById<TextView>(R.id.artist_description).apply{text=args.artist.description }
-        activity.findViewById<TextView>(R.id.artist_creation_date).apply{text=args.artist.creationDate}
+        activity.findViewById<TextView>(R.id.artist_creation_date).apply{text=args.artist.birthDate}
         Glide.with(activity)
             .load(args.artist.image.toUri().buildUpon().scheme("https").build())
             .apply(RequestOptions.circleCropTransform().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))

@@ -127,6 +127,9 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
 
+    implementation "androidx.room:room-runtime:2.4.0-alpha03"
+    annotationProcessor "androidx.room:room-compiler:2.4.0-alpha03"
+    kapt 'androidx.room:room-compiler:2.4.0-alpha03'
     // Room components
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
