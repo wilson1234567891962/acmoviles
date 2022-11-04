@@ -13,17 +13,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.ArtistItemBinding
-import com.co.retrofit.app.feature.model.dto.Artist
-import com.co.retrofit.app.feature.view.fragments.ArtistListFragmentDirections
 
-class ArtistAdapter(private val fragment: Fragment):
+import com.co.retrofit.app.feature.view.fragments.ArtistListFragmentDirections
+import com.co.retrofit.data.model.dto.Artist
+
+class ArtistAdapter(private val fragment: Fragment,
+                    private val listener: (Artist) -> Unit):
     RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
 
-    var artists :List<Artist> = emptyList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+    var artists :List<Artist> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
         val withDataBinding: ArtistItemBinding = DataBindingUtil.inflate(
@@ -35,6 +33,8 @@ class ArtistAdapter(private val fragment: Fragment):
     }
 
     override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
+
+
         holder.viewDataBinding.also {
             it.artist = artists[position]
 
@@ -44,7 +44,15 @@ class ArtistAdapter(private val fragment: Fragment):
 
 
         holder.viewDataBinding.root.setOnClickListener {
-            val action = ArtistListFragmentDirections.actionNavigationArtistToNavigationAlbumsOfArtist(artists[position].artistId, artists[position])
+
+            val artist = com.co.retrofit.app.feature.model.dto.Artist(
+                artistId = artists[position].id,
+                name = artists[position].name,
+                image = artists[position].image,
+                birthDate = artists[position].birthDate,
+                description = artists[position].description
+            )
+            val action = ArtistListFragmentDirections.actionNavigationArtistToNavigationAlbumsOfArtist(artists[position].id, artist)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
         }
@@ -56,10 +64,16 @@ class ArtistAdapter(private val fragment: Fragment):
         return artists.size
     }
 
+    fun addArtist( artists: List<Artist>) {
+        this.artists = artists
+        notifyDataSetChanged()
+    }
 
-    class ArtistViewHolder( val viewDataBinding: ArtistItemBinding) :
-        RecyclerView.ViewHolder(viewDataBinding.root) {
+
+    class ArtistViewHolder(val viewDataBinding: ArtistItemBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
         val ivDishImage = viewDataBinding.ivDishImage
+        val tvDishTitle = viewDataBinding.tvDishTitle
+
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.artist_item

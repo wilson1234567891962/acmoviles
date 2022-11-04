@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.R
-import com.co.retrofit.app.feature.viewmodel.ArtistViewModel
+import com.co.retrofit.app.feature.viewmodel.artist.ArtistViewModel
 
 class ArtistFragment: Fragment() {
 

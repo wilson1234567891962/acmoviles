@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_album_creation" >
     </fragment>
     <fragment
-        android:id="@+id/navigation_artist"
+        android:id="@+id/navigation_artist_list"
         android:name="com.co.retrofit.app.feature.view.fragments.ArtistListFragment"
         android:label="@string/title_artist"
         tools:layout="@layout/fragment_artist_list">
