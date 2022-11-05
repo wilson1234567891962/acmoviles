@@ -9,7 +9,7 @@
             android:icon="@drawable/outline_interests_24"
             android:title="@string/title_collector" />
     <item
-            android:id="@+id/navigation_artist"
+            android:id="@+id/navigation_artist_list"
             android:icon="@drawable/outline_perm_identity_24"
             android:title="@string/title_artist" />
 
