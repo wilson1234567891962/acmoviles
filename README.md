@@ -207,7 +207,7 @@ Para ejecutar unicamente debe  hacer lo siguiente:
 
 # Video de como ejecutar las pruebas automatizadas  ⚙️
 
-https://user-images.githubusercontent.com/33532595/140618095-56ed7d7e-ee1f-4ab0-a303-4f73adb3771f.mp4
+
 
 
 
