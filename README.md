@@ -198,12 +198,6 @@ Para ejecutar unicamente debe  hacer lo siguiente:
 
 ![Captura](https://user-images.githubusercontent.com/33532595/140617907-59e71264-8781-4e20-a208-b25189ee0538.JPG)
 
-# Video de como ejecutar las pruebas automatizadas  ⚙️
-
-
-
-
-
 ## Construido con 🛠️
 
 _Herramientas usadas para crear el proyecto_
