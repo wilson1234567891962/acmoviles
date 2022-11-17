@@ -45,7 +45,7 @@ class AlbumFragment : Fragment() {
             GridLayoutManager(requireActivity(), 2)
         // Adapter class is initialized and list is passed in the param.
         adapter = AlbumAdapter(this@AlbumFragment) { item ->
-            // this.processItemAdapter(item);
+            this.processItemAdapter(item);
         };
         // adapter instance is set to the recyclerview to inflate the items.
         mBinding!!.rvAlbumList.adapter = adapter

@@ -1,4 +1,4 @@
-# dajw-ingenieria-de-software-para-aplicaciones-moviles
+# acmoviles
 # Vinyls
 
 Este proyecto contiene el codigo fuente de la aplicacion de android
@@ -146,7 +146,7 @@ Clonar el repositorio a traves de git siguiendo los siguientes pasos
 * Abrir la terminal y ubicarse en la ruta donde se encuentra creada la carpeta a traves de la terminal 
 
 
-* Clonar el repositorio a traves del siguiente commando  **git clone https://github.com/wilson1234567891962/dajw-ingenieria-de-software-para-aplicaciones-moviles.git**
+* Clonar el repositorio a traves del siguiente commando  **git clone https://github.com/wilson1234567891962/acmoviles.git**
 
 ![git](https://user-images.githubusercontent.com/78820446/117548460-c7944580-affa-11eb-87bd-e5e574837e68.PNG)
 
@@ -180,13 +180,6 @@ Ahora va empezar a sincronizar el proyecto debemos esperar que termine el proces
 
 Por ultimo vamos a crear un emulador  superior o igual a la version 21 de android studio. En el siguiente enlace se explica como crear un emulador u correr la app. https://developer.android.com/studio/run/emulator
 
-## Video para correr el proyecto 🚗
-
-En siguiente video encontrara una breve explicacion de cuales seran los pasos para correr el proyecto 
-
-https://uniandes-my.sharepoint.com/:v:/g/personal/w_gonzalezg_uniandes_edu_co/EZIyjgvk20xIv9iHBL6-nP4BbgVWOHdO_4pgb8wX8lDzPQ?e=btearI
-
-
 # Ejecutando las pruebas de Expresso  ⚙️
 
 Para ejecutar unicamente debe  hacer lo siguiente:
@@ -205,12 +198,6 @@ Para ejecutar unicamente debe  hacer lo siguiente:
 
 ![Captura](https://user-images.githubusercontent.com/33532595/140617907-59e71264-8781-4e20-a208-b25189ee0538.JPG)
 
-# Video de como ejecutar las pruebas automatizadas  ⚙️
-
-https://user-images.githubusercontent.com/33532595/140618095-56ed7d7e-ee1f-4ab0-a303-4f73adb3771f.mp4
-
-
-
 ## Construido con 🛠️
 
 _Herramientas usadas para crear el proyecto_
@@ -224,7 +211,6 @@ _Herramientas usadas para crear el proyecto_
 * [Chrome](https://www.google.com/intl/es/chrome/?brand=UUXU&gclid=CjwKCAjw7diEBhB-EiwAskVi10CI0gLPlO0E3zn_0-3gOnt60O2j_i2Jr_gHLJIEkfyP0JssFBki4hoC4sYQAvD_BwE&gclsrc=aw.ds) - Chrome
 * [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript) - Javascript
 * [Git](https://git-scm.com/downloads) - Git
-* [Ghost](https://github.com/TryGhost/Ghost/tree/3.3.0) - Ghost
 * [Chromedriver](https://chromedriver.chromium.org/downloads) - chromedriver
 * [Ruby](https://rubyinstaller.org/) - Ruby
 
