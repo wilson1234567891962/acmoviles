@@ -41,9 +41,9 @@ class CollectorAdapter(private  val fragment: Fragment):
         holder.headerLabelInitials.text = collectors[position].name.first().toString()
 
         holder.viewDataBinding.root.setOnClickListener {
-            val action = CollectorFragmentDirections.actionNavigationCollectorToNavigationAlbumOfCollector(collectors[position].collectorId, collectors[position])
+            // val action = CollectorFragmentDirections.actionNavigationCollectorToNavigationAlbumOfCollector(collectors[position].collectorId, collectors[position])
             // Navigate using that action
-            holder.viewDataBinding.root.findNavController().navigate(action)
+            // holder.viewDataBinding.root.findNavController().navigate(action)
         }
 
 
