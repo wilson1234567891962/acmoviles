@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Vinyls</string>
-
     <string name="splash_screen_title">Music</string>
     <string name="title_home">Albumes</string>
     <string name="title_collector">Coleccionistas</string>
