@@ -22,8 +22,11 @@ import com.co.retrofit.app.feature.viewmodel.CollectorViewModel
 
 class CollectorFragment: Fragment(R.layout.fragment_collector) {
 
+    private val collectorViewModel by viewModelProvider(CollectorViewModel::class)
     private var _binding: FragmentCollectorBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: CollectorViewModel
+    private lateinit var recyclerView: RecyclerView
     private var viewModelAdapter: CollectorAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,13 +48,47 @@ class CollectorFragment: Fragment(R.layout.fragment_collector) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-    }
+        recyclerView = binding.collectorRecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = viewModelAdapter
 
+        recyclerView.apply {
+            layoutManager = GridLayoutManager(requireActivity(), 2)
+        }
+
+        showFloating()
+
+    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
+        activity.actionBar?.title = getString(R.string.title_artist)
+        viewModel = ViewModelProvider(this, CollectorViewModel.Factory(activity.application as RetrofitApplication)).get(
+            CollectorViewModel::class.java)
+        //this.activity?.showLoader()
+        viewModel.collectors.observe(viewLifecycleOwner, Observer<List<Collector>> {
+            it.apply {
+                viewModelAdapter!!.collectors = this
+            }
+            //this.activity?.hideLoader()
+        })
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
+            if (isNetworkError) onNetworkError()
+        })
+    }
+    private fun onNetworkError() {
+        if(!viewModel.isNetworkErrorShown.value!!) {
+            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+            viewModel.onNetworkErrorShown()
+        }
+    }
+
+
+
+    private fun showFloating() {
+        collectorViewModel.setStateFloating(false)
     }
 
     override fun onDestroyView() {
