@@ -29,4 +29,8 @@ class ArtistViewModel : ViewModel() {
     fun setArtists(artists: List<Artist>) {
         return RepositoryProvider.artistRepository.setArtist(artists)
     }
+
+    fun saveSelectionItem(artist: Artist) {
+        return RepositoryProvider.artistRepository.saveSelectionArtistItem(artist)
+    }
 }
