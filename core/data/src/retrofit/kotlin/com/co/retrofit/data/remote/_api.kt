@@ -22,6 +22,9 @@ interface Api {
 
     @GET("/musicians")
     fun getArtists(): Call<List<Artist>>
+
+    @GET("/musicians/{id}")
+    fun getArtist(@Path("id") id: Int): Call<Artist>
 }
 
 val api: Api by lazy { BackendClient.api(Api::class.java) }
