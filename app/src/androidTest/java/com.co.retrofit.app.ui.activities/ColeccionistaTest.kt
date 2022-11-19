@@ -6,9 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.BoundedMatcher
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
@@ -17,57 +15,35 @@ import com.co.retrofit.app.R
 import com.co.retrofit.app.feature.view.activities.MainActivity
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.jvm.internal.Intrinsics
+import androidx.test.espresso.assertion.ViewAssertions.matches
 
 
-@RunWith(AndroidJUnit4::class)
+
 @LargeTest
-class ArtistTest {
-
+@RunWith(AndroidJUnit4::class)
+class ColeccionistaTest {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
-
     @Test
-    fun navigationArtist() {
-        onView(
-            allOf(
-                withId(R.id.navigation_artist), withContentDescription("Artistas"),
-                isDisplayed()
-            )
-        )
+    fun clickEnColeccionistas() {
+        onView(withId(R.id.navigation_collector)).perform(click())
+        onView(withId(R.id.collectorRecyclerView)).check(matches( atPosition(0,hasDescendant(withText("Manolo Bellon")))))
     }
 
     @Test
-    fun bottomNavigationItemView() {
-        val bottomNavigationItemView = onView(
-            allOf(
-                withId(R.id.navigation_artist_list), withContentDescription("Artistas"),
-                isDisplayed()
-            )
-        )
-        bottomNavigationItemView.perform(click())
-    }
-
-    @Test
-    fun artistDetail() {
-        val artistastBtn = onView(allOf(withId(R.id.navigation_artist_list), isDisplayed()))
-        artistastBtn.perform(click())
-        val artistsList = onView(allOf(withId(R.id.rv_artists_list)))
-        artistsList.check(ViewAssertions.matches(isDisplayed()))
-
-        val artistBtn = onView(withId(R.id.rv_artists_list))
-            .check(ViewAssertions.matches(atPosition(0, hasDescendant(withText("Rubén Blades Bellido de Luna")))))
-
-        artistBtn.perform(click())
-
-        onView(ViewMatchers.withId(R.id.artist_name))
-            .check(ViewAssertions.matches(hasValueEqualTo("Rubén Blades Bellido de Luna")))
-
+    fun NavegarOpcionesMenuPpal() {
+        onView(withId(R.id.navigation_collector)).perform(click())
+        onView(withId(R.id.collectorRecyclerView)).check(matches(atPosition(0, hasDescendant(withText("Manolo Bellon")))))
+        onView(withId(R.id.navigation_album)).perform(click()).check(matches(isDisplayed()))
+        onView(withId(R.id.navigation_artist_list)).perform(click()).check(matches(isDisplayed()))
+        onView(withId(R.id.navigation_collector)).perform(click()).check(matches(isDisplayed()))
+        //onView(withId(R.id.navigation_collector)).perform(click()).check(matches(isDisplayed()))
+        //onView(withId(R.id.collectorRecyclerView)).check(matches(atPosition(0, hasDescendant(withText("Manolo Bellon")))))
     }
 
     fun atPosition(position: Int, itemMatcher: Matcher<View?>): Matcher<View?>? {
@@ -110,6 +86,5 @@ class ArtistTest {
             }
         }
     }
-
 
 }

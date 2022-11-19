@@ -8,6 +8,8 @@ import com.co.retrofit.app.feature.model.dto.Artist
 
 
 import com.co.retrofit.app.feature.repositories.AlbumsOfArtistRepository
+import com.co.retrofit.data.RepositoryProvider
+import com.co.retrofit.data.livedata.ResponseLiveData
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -64,6 +66,14 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: 
         _isNetworkErrorShown.value = true
     }
 
+    fun getArtistSelected(): ResponseLiveData<com.co.retrofit.data.model.dto.Artist> {
+        return RepositoryProvider.artistRepository.getArtistSelected()
+    }
+
+    fun getArtistApi(artist: com.co.retrofit.data.model.dto.Artist): ResponseLiveData<com.co.retrofit.data.model.dto.Artist> {
+        return RepositoryProvider.artistRepository.getArtistApi(artist)
+    }
+
     class Factory(val app: Application, val artistId: Int, val artist: Artist) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(AlbumsOfArtistViewModel::class.java)) {
@@ -73,4 +83,5 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: 
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
+
 }

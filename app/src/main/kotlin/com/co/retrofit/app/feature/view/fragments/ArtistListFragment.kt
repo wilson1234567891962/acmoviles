@@ -47,7 +47,7 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
             GridLayoutManager(requireActivity(), 2)
         // Adapter class is initialized and list is passed in the param.
         artistAdapter = ArtistAdapter(this@ArtistListFragment) { item ->
-            System.out.println(item)
+            artistViewModel.saveSelectionItem(item)
         };
         // adapter instance is set to the recyclerview to inflate the items.
         binding!!.rvArtistsList.adapter = artistAdapter
