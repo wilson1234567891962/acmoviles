@@ -5,18 +5,16 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.BoundedMatcher
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.runner.AndroidJUnit4
 import com.co.retrofit.app.R
 import com.co.retrofit.app.feature.view.activities.MainActivity
-import org.hamcrest.CoreMatchers
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
@@ -62,8 +60,14 @@ class ArtistTest {
         val artistsList = onView(allOf(withId(R.id.rv_artists_list)))
         artistsList.check(ViewAssertions.matches(isDisplayed()))
 
-        onView(withId(R.id.rv_artists_list))
+        val artistBtn = onView(withId(R.id.rv_artists_list))
             .check(ViewAssertions.matches(atPosition(0, hasDescendant(withText("Rubén Blades Bellido de Luna")))))
+
+        artistBtn.perform(click())
+
+        onView(ViewMatchers.withId(R.id.artist_name))
+            .check(ViewAssertions.matches(hasValueEqualTo("Rubén Blades Bellido de Luna")))
+
     }
 
     fun atPosition(position: Int, itemMatcher: Matcher<View?>): Matcher<View?>? {
@@ -79,6 +83,30 @@ class ArtistTest {
                     ?: // has no item on such position
                     return false
                 return itemMatcher.matches(viewHolder.itemView)
+            }
+        }
+    }
+
+    fun hasValueEqualTo(content: String): Matcher<View?>? {
+        return object : TypeSafeMatcher<View?>() {
+            override fun describeTo(description: Description) {
+                description.appendText("Has EditText/TextView the value:  $content")
+            }
+
+            override fun matchesSafely(view: View?): Boolean {
+                if (view !is TextView && view !is EditText) {
+                    return false
+                }
+                if (view != null) {
+                    val text: String
+                    text = if (view is TextView) {
+                        view.text.toString()
+                    } else {
+                        (view as EditText).text.toString()
+                    }
+                    return text.equals(content, ignoreCase = true)
+                }
+                return false
             }
         }
     }
