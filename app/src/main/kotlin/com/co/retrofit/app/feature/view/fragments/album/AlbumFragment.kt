@@ -81,6 +81,6 @@ class AlbumFragment : Fragment() {
     }
 
     private fun showFloating() {
-        albumViewModel.setStateFloating(false)
+        albumViewModel.setStateFloating(true)
     }
 }
