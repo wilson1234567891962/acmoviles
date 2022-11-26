@@ -114,7 +114,9 @@
                 android:inputType="text|textMultiLine"
                 android:padding="@dimen/_8sdp"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_16sdp" />
+                android:textSize="@dimen/_16sdp"
+                android:hint="@string/creation_album_description"
+            />
 
 
         <RelativeLayout

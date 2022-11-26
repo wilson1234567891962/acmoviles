@@ -72,6 +72,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    compileOptions {
+        sourceCompatibility kotlin_version
+        targetCompatibility kotlin_version
+    }
+    compileSdk 33
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
