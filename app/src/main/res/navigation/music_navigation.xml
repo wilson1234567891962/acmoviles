@@ -70,12 +70,7 @@
         android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumMusicFragment"
         android:label="@string/title_artist" />
 
-
-            android:id="@+id/fragment_album_creation"
-            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumCreation"
-            android:label="@string/title_collector"
-            tools:layout="@layout/fragment_album_creation" />
-    <fragment
+      <fragment
             android:id="@+id/navigation_artist"
             android:name="com.co.retrofit.app.feature.view.fragments.ArtistFragment"
             android:label="@string/title_artist"
