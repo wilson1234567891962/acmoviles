@@ -47,7 +47,7 @@
                 android:layout_margin="@dimen/_1sdp"
                 android:contentDescription="@string/image_contentDescription"
                 tools:src="@mipmap/ic_launcher"
-                android:paddingTop="10dp"/>
+                android:paddingTop="@dimen/_10sp"/>
 
         <TextView
                 android:id="@+id/artist_name"
@@ -56,10 +56,10 @@
                 android:layout_margin="@dimen/_1sdp"
                 android:gravity="center"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_16sdp"
+                android:textSize="@dimen/_20sp"
                 android:textStyle="bold"
-                android:paddingBottom="2dp"
-                android:paddingTop="2dp"
+                android:paddingBottom="@dimen/_2sp"
+                android:paddingTop="@dimen/_2sp"
                  />
 
         <TextView
@@ -68,21 +68,21 @@
                 android:layout_margin="@dimen/_1sdp"
                 android:gravity="center"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_20sp"
                 android:textStyle="bold"
                 android:text="@string/fecha_de_creacion"
-                android:paddingBottom="0dp"
+                android:paddingBottom="0sp"
                 />
 
         <TextView
                 android:id="@+id/artist_creation_date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/_5sdp"
+                android:layout_margin="@dimen/_20sp"
                 android:gravity="center"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_12sdp"
-                android:paddingBottom="0dp"
+                android:textSize="@dimen/_20sp"
+                android:paddingBottom="0sp"
                 />
 
         <TextView
@@ -91,9 +91,9 @@
                 android:layout_margin="@dimen/_1sdp"
                 android:gravity="center"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_20sp"
                 android:textStyle="bold"
-                android:paddingBottom="0dp"
+                android:paddingBottom="0sp"
                 android:text="@string/descripcion"
                 />
 
@@ -104,8 +104,8 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:gravity="center"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_12sdp"
-                android:paddingBottom="0dp"
+                android:textSize="@dimen/_20sp"
+                android:paddingBottom="0sp"
                 />
         <TextView
                 android:id="@+id/titulo_lista_albumes"
@@ -114,10 +114,10 @@
                 android:layout_margin="@dimen/_1sdp"
                 android:gravity="center"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_20sp"
                 android:textStyle="bold"
                 android:text="@string/albumes"
-                android:paddingBottom="0dp"
+                android:paddingBottom="0sp"
                 android:contentDescription="@string/usability_artist_album_title"/>
 
         <TextView

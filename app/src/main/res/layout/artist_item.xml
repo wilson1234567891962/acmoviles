@@ -44,7 +44,7 @@
                     android:textSize="@dimen/_16sdp"
                     android:textStyle="bold"
                     android:text="@{artist.name}"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="@dimen/_10sp"/>
 
 
 

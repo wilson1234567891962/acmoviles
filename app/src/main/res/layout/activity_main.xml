@@ -19,15 +19,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:theme="@style/Theme.MaterialComponents.Light"
-            app:fabCradleMargin="20dp"
-            app:fabCradleRoundedCornerRadius="20dp"
-            app:fabCradleVerticalOffset="10dp">
+            app:fabCradleMargin="@dimen/_20sp"
+            app:fabCradleRoundedCornerRadius="@dimen/_20sp"
+            app:fabCradleVerticalOffset="@dimen/_10sp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="@dimen/_16sp"
                 android:background="@android:color/transparent"
                 app:menu="@menu/button_nav_menu" />
 
@@ -38,7 +38,7 @@
             android:contentDescription="@string/main_usability_floating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="@dimen/_25sp"
             android:src="@drawable/ic_add"
             app:layout_anchor="@id/bottomAppBar" />
 
