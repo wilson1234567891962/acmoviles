@@ -8,13 +8,20 @@
         android:id="@+id/navigation_album"
         android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_album" >
+        tools:layout="@layout/fragment_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
     </fragment>
     <fragment
         android:id="@+id/navigation_collector"
         android:name="com.co.retrofit.app.feature.view.fragments.CollectorFragment"
         android:label="@string/title_collector"
-        tools:layout="@layout/fragment_collector" >
+        tools:layout="@layout/fragment_collector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
         <action
             android:id="@+id/action_navigation_collector_to_navigation_album_of_collector"
             app:destination="@id/navigation_album_of_collector" />
@@ -70,12 +77,7 @@
         android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumMusicFragment"
         android:label="@string/title_artist" />
 
-
-            android:id="@+id/fragment_album_creation"
-            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumCreation"
-            android:label="@string/title_collector"
-            tools:layout="@layout/fragment_album_creation" />
-    <fragment
+      <fragment
             android:id="@+id/navigation_artist"
             android:name="com.co.retrofit.app.feature.view.fragments.ArtistFragment"
             android:label="@string/title_artist"

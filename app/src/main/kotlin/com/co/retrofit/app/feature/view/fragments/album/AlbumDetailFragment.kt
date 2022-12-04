@@ -93,7 +93,7 @@ class AlbumDetailFragment : Fragment() {
     }
 
     private fun showFloating() {
-        albumDetailViewModel.setStateFloating(false)
+        albumDetailViewModel.setStateFloating(true)
     }
     @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){

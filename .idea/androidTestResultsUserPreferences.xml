@@ -141,6 +141,7 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="Galaxy_Nexus_API_30" value="120" />
                   <entry key="Nexus_S_API_33" value="120" />
                   <entry key="Tests" value="360" />
                   <entry key="Xiaomi&#10; M1908C3JGG" value="120" />
@@ -182,6 +183,7 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="Galaxy_Nexus_API_30" value="120" />
                   <entry key="Nexus_S_API_33" value="120" />
                   <entry key="Tests" value="360" />
                 </map>

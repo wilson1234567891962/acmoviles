@@ -37,7 +37,9 @@
 
         <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1sp"
+                android:textSize="@dimen/_20sp"
+                android:minHeight="@dimen/_48sp"
                 android:layout_below="@+id/title_detail_album"
                 android:background="@color/dark_gray" />
 
@@ -114,7 +116,9 @@
                 android:inputType="text|textMultiLine"
                 android:padding="@dimen/_8sdp"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_16sdp" />
+                android:textSize="@dimen/_16sdp"
+                android:hint="@string/creation_album_description"
+            />
 
 
         <RelativeLayout

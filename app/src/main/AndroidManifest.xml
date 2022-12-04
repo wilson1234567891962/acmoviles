@@ -16,14 +16,14 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
         <activity
-                android:name=".feature.view.activities.Maintenance" />
-        <activity android:name=".feature.view.activities.SplashActivity">
+                android:name=".feature.view.activities.Maintenance" android:exported="true" />
+        <activity android:name=".feature.view.activities.SplashActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".feature.view.activities.MainActivity" />
+        <activity android:name=".feature.view.activities.MainActivity" android:exported="true"/>
     </application>
 
 </manifest>

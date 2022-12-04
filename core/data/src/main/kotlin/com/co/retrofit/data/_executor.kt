@@ -12,7 +12,7 @@ fun async(block: () -> Unit) = Thread(block).apply { start() }
 fun sync(block: () -> Unit) = Handler(Looper.getMainLooper()).post { block }
 
 inline fun <T> makeRequest(call: Call<T>): ResponseLiveData<T> {
-    val liveData = MutableResponseLiveData<T>()
+        val liveData = MutableResponseLiveData<T>()
         try {
             liveData.postLoading()
             var response : Response<T> ? = null
