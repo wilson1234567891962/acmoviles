@@ -26,7 +26,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class ColeccionistaTest {
+class CollectorTest {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
     @Test
