@@ -12,22 +12,22 @@ android {
         retrofit {
 
             def environment = [
-                    local : "34.173.213.18:3000"
+                    local : "vinilos-back-end.herokuapp.com"
             ]
 
             def serverIp = project.hasProperty("ip") ? ip : environment.local
-            def prodServerIp = "34.173.213.18:3000"
+            def prodServerIp = "vinilos-back-end.herokuapp.com"
 
             println "---- Building with IP:  $serverIp ----"
 
             // Url Config
             ext.server_url = [
-                    debug  : "http://$prodServerIp",
-                    release: "http://$prodServerIp",
+                    debug  : "https://$prodServerIp",
+                    release: "https://$prodServerIp",
                     develop: "http://$serverIp"]
             ext.server_url_public = [
-                    debug  : "http://$prodServerIp",
-                    release: "http://$prodServerIp",
+                    debug  : "https://$prodServerIp",
+                    release: "https://$prodServerIp",
                     develop: "http://$serverIp"]
         }
     }
